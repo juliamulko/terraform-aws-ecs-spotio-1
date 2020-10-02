@@ -2,11 +2,6 @@ variable "cluster_name" {
   type = string
 }
 
-variable "is_spot" {
-  type    = bool
-  default = true
-}
-
 variable "environment" {
   type        = string
   description = "This would help you distinguish between your different environments"
@@ -40,19 +35,10 @@ variable "tags" {
   default = {}
 }
 
-
-# On Demand Only
-variable "cluster_instance_type" {
+variable "spotinst_account" {
   type    = string
-  default = "m5.large"
 }
 
-variable "initial_workers" {
-  type    = number
-  default = 3
-}
-
-variable "max_workers" {
-  type    = number
-  default = 10
+variable "spotinst_token" {
+  type    = string
 }

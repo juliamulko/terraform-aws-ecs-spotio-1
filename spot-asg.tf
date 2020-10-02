@@ -1,10 +1,9 @@
 provider "spotinst" {
-  alias = "spot_account"
+  account = var.spotinst_account
+  token   = var.spotinst_token
 }
 
 resource "spotinst_ocean_ecs" "ocean-autoscaling-group" {
-  count        = var.is_spot ? 1 : 0
-  provider     = spotinst.spot_account
   region       = data.aws_region.current.name
   name         = var.cluster_name
   cluster_name = var.cluster_name
